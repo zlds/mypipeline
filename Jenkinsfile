@@ -7,7 +7,7 @@ pipeline {
 	stages {
 		stage("SCM Checkout") {
 			steps {
-				sh "${MvnCMD} celan compile"
+				sh "${MvnCMD} clean compile"
 			}
 		}
 		stage("Testing Stage") {
