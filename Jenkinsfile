@@ -1,22 +1,23 @@
 pipeline {
 	agent any
+	environment {
+		def MvnHome = tool name: 'maven', type: 'maven'
+        def MvnCMD = "${MvnHome}/bin/mvn"
+	}
 	stages {
 		stage("SCM Checkout") {
 			steps {
-				withMaven(maven : "maven")
-				sh 'mvn celan compile'
+				sh "${MvnCMD} celan compile"
 			}
 		}
 		stage("Testing Stage") {
 			steps {
-				withMaven(maven : 'maven')
-				sh 'mvn test'
+				sh "${MvnCMD} mvn test"
 			}
 		}
 		stage("Deploy Stage") {
 			steps {
-				withMaven(maven : 'maven')
-				sh 'mvn deploy'
+				sh "${MvnCMD} mvn deploy"
 			}
 		}
 	}
