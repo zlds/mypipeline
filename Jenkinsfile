@@ -17,7 +17,7 @@ pipeline {
 		}
 		stage("Deploy Stage") {
 			steps {
-				sh "${MvnCMD}  deploy"
+				sh "${MvnCMD}  clean package"
 			}
 		}
 	}
