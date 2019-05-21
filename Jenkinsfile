@@ -12,12 +12,12 @@ pipeline {
 		}
 		stage("Testing Stage") {
 			steps {
-				sh "${MvnCMD} mvn test"
+				sh "${MvnCMD} test"
 			}
 		}
 		stage("Deploy Stage") {
 			steps {
-				sh "${MvnCMD} mvn deploy"
+				sh "${MvnCMD}  deploy"
 			}
 		}
 	}
